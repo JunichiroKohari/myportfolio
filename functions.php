@@ -19,7 +19,15 @@ function custom_theme_setup() {
 
 	//アイキャッチ画像を有効化
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 231, 177, false );
+    set_post_thumbnail_size( 231, 177, false );
+    
+    // カスタムメニュー有効化、メニューの位置を設定
+    register_nav_menus(
+        array(
+            'globalnav' => 'グローバルナビゲーション',
+        )
+    );
+
 }
 add_action( 'after_setup_theme', 'custom_theme_setup' );
 
