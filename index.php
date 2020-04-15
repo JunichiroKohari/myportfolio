@@ -17,7 +17,11 @@
                             <article <?php post_class(); ?>>
                                 <div class="hentry-thumbnail">
                                     <a href="<?php the_permalink(); ?>">
+                                        <?php if(has_post_thumbnail()) : ?>
+                                            <?php the_post_thumbnail(); ?>
+                                        <?php else : ?>
                                         <img src="<?php echo esc_url( get_theme_file_uri( 'images/img-default.png' ) ); ?>" alt="">
+                                        <?php endif; ?>
                                     </a>
                                 </div>
                                 <div class="hentry-content">
