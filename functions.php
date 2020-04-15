@@ -33,3 +33,16 @@ function myportfolio_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'myportfolio_scripts' );
+
+function custom_widget_register() {
+    register_sidebar( array(
+        'name'          => 'サイドバーウィジェットエリア',
+        'id'            => 'sidebar-widget',
+        'description'   => 'ブログページのサイドバーに表示されます。',
+        'before_widget' => '<div id="%1$s" class="c-widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="c-widget__title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action('widgets_init', 'custom_widget_register');
